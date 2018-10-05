@@ -1,0 +1,520 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="KidsKingdomModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Kid">
+          <Key>
+            <PropertyRef Name="KidID" />
+          </Key>
+          <Property Name="KidID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kid_level_practice">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KidID" Type="int" Nullable="false" />
+          <Property Name="practiceID" Type="int" Nullable="false" />
+          <Property Name="Score" Type="int" Nullable="false" />
+          <Property Name="PracticeName" Type="nvarchar(max)" />
+          <Property Name="UseName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Lesson">
+          <Key>
+            <PropertyRef Name="LessonID" />
+          </Key>
+          <Property Name="LessonID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LevelID" Type="int" Nullable="false" />
+          <Property Name="LessonNumber" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Lesson_Content">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image1_C" Type="nvarchar" MaxLength="50" />
+          <Property Name="Image2_S" Type="nvarchar" MaxLength="50" />
+          <Property Name="Image3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Voice" Type="nvarchar" MaxLength="50" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="LessonID" Type="int" />
+          <Property Name="video" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Level">
+          <Key>
+            <PropertyRef Name="LevelID" />
+          </Key>
+          <Property Name="LevelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LevelType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LevelNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Practice">
+          <Key>
+            <PropertyRef Name="PracticeID" />
+          </Key>
+          <Property Name="PracticeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PracticeNumber" Type="int" Nullable="false" />
+          <Property Name="LevelID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Practice_content">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Choice1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Choice2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Choice3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Choice4" Type="nvarchar" MaxLength="50" />
+          <Property Name="audio" Type="nvarchar" MaxLength="50" />
+          <Property Name="correct" Type="nvarchar" MaxLength="50" />
+          <Property Name="PracticeID" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Kid_level_practice_Kid">
+          <End Role="Kid" Type="Self.Kid" Multiplicity="1" />
+          <End Role="Kid_level_practice" Type="Self.Kid_level_practice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kid">
+              <PropertyRef Name="KidID" />
+            </Principal>
+            <Dependent Role="Kid_level_practice">
+              <PropertyRef Name="KidID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kid_level_practice_Practice">
+          <End Role="Practice" Type="Self.Practice" Multiplicity="1" />
+          <End Role="Kid_level_practice" Type="Self.Kid_level_practice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Practice">
+              <PropertyRef Name="PracticeID" />
+            </Principal>
+            <Dependent Role="Kid_level_practice">
+              <PropertyRef Name="practiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lesson_Content_Lesson">
+          <End Role="Lesson" Type="Self.Lesson" Multiplicity="0..1" />
+          <End Role="Lesson_Content" Type="Self.Lesson_Content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lesson">
+              <PropertyRef Name="LessonID" />
+            </Principal>
+            <Dependent Role="Lesson_Content">
+              <PropertyRef Name="LessonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lesson_Level">
+          <End Role="Level" Type="Self.Level" Multiplicity="1" />
+          <End Role="Lesson" Type="Self.Lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Level">
+              <PropertyRef Name="LevelID" />
+            </Principal>
+            <Dependent Role="Lesson">
+              <PropertyRef Name="LevelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Practice_content_Practice">
+          <End Role="Practice" Type="Self.Practice" Multiplicity="0..1" />
+          <End Role="Practice_content" Type="Self.Practice_content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Practice">
+              <PropertyRef Name="PracticeID" />
+            </Principal>
+            <Dependent Role="Practice_content">
+              <PropertyRef Name="PracticeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Practice_Level">
+          <End Role="Level" Type="Self.Level" Multiplicity="1" />
+          <End Role="Practice" Type="Self.Practice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Level">
+              <PropertyRef Name="LevelID" />
+            </Principal>
+            <Dependent Role="Practice">
+              <PropertyRef Name="LevelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KidsKingdomModelStoreContainer">
+          <EntitySet Name="Kid" EntityType="Self.Kid" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kid_level_practice" EntityType="Self.Kid_level_practice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lesson" EntityType="Self.Lesson" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lesson_Content" EntityType="Self.Lesson_Content" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Level" EntityType="Self.Level" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Practice" EntityType="Self.Practice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Practice_content" EntityType="Self.Practice_content" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Kid_level_practice_Kid" Association="Self.FK_Kid_level_practice_Kid">
+            <End Role="Kid" EntitySet="Kid" />
+            <End Role="Kid_level_practice" EntitySet="Kid_level_practice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kid_level_practice_Practice" Association="Self.FK_Kid_level_practice_Practice">
+            <End Role="Practice" EntitySet="Practice" />
+            <End Role="Kid_level_practice" EntitySet="Kid_level_practice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lesson_Content_Lesson" Association="Self.FK_Lesson_Content_Lesson">
+            <End Role="Lesson" EntitySet="Lesson" />
+            <End Role="Lesson_Content" EntitySet="Lesson_Content" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lesson_Level" Association="Self.FK_Lesson_Level">
+            <End Role="Level" EntitySet="Level" />
+            <End Role="Lesson" EntitySet="Lesson" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Practice_content_Practice" Association="Self.FK_Practice_content_Practice">
+            <End Role="Practice" EntitySet="Practice" />
+            <End Role="Practice_content" EntitySet="Practice_content" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Practice_Level" Association="Self.FK_Practice_Level">
+            <End Role="Level" EntitySet="Level" />
+            <End Role="Practice" EntitySet="Practice" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KidsKingdomModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Kid">
+          <Key>
+            <PropertyRef Name="KidID" />
+          </Key>
+          <Property Name="KidID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Kid_level_practice" Relationship="Self.FK_Kid_level_practice_Kid" FromRole="Kid" ToRole="Kid_level_practice" />
+        </EntityType>
+        <EntityType Name="Kid_level_practice">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KidID" Type="Int32" Nullable="false" />
+          <Property Name="practiceID" Type="Int32" Nullable="false" />
+          <Property Name="Score" Type="Int32" Nullable="false" />
+          <Property Name="PracticeName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UseName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Kid" Relationship="Self.FK_Kid_level_practice_Kid" FromRole="Kid_level_practice" ToRole="Kid" />
+          <NavigationProperty Name="Practice" Relationship="Self.FK_Kid_level_practice_Practice" FromRole="Kid_level_practice" ToRole="Practice" />
+        </EntityType>
+        <EntityType Name="Lesson">
+          <Key>
+            <PropertyRef Name="LessonID" />
+          </Key>
+          <Property Name="LessonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LevelID" Type="Int32" Nullable="false" />
+          <Property Name="LessonNumber" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Lesson_Content" Relationship="Self.FK_Lesson_Content_Lesson" FromRole="Lesson" ToRole="Lesson_Content" />
+          <NavigationProperty Name="Level" Relationship="Self.FK_Lesson_Level" FromRole="Lesson" ToRole="Level" />
+        </EntityType>
+        <EntityType Name="Lesson_Content">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image1_C" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Image2_S" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Image3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Voice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LessonID" Type="Int32" />
+          <Property Name="video" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Lesson" Relationship="Self.FK_Lesson_Content_Lesson" FromRole="Lesson_Content" ToRole="Lesson" />
+        </EntityType>
+        <EntityType Name="Level">
+          <Key>
+            <PropertyRef Name="LevelID" />
+          </Key>
+          <Property Name="LevelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LevelType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LevelNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Lessons" Relationship="Self.FK_Lesson_Level" FromRole="Level" ToRole="Lesson" />
+          <NavigationProperty Name="Practices" Relationship="Self.FK_Practice_Level" FromRole="Level" ToRole="Practice" />
+        </EntityType>
+        <EntityType Name="Practice">
+          <Key>
+            <PropertyRef Name="PracticeID" />
+          </Key>
+          <Property Name="PracticeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PracticeNumber" Type="Int32" Nullable="false" />
+          <Property Name="LevelID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Kid_level_practice" Relationship="Self.FK_Kid_level_practice_Practice" FromRole="Practice" ToRole="Kid_level_practice" />
+          <NavigationProperty Name="Level" Relationship="Self.FK_Practice_Level" FromRole="Practice" ToRole="Level" />
+          <NavigationProperty Name="Practice_content" Relationship="Self.FK_Practice_content_Practice" FromRole="Practice" ToRole="Practice_content" />
+        </EntityType>
+        <EntityType Name="Practice_content">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Choice1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Choice2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Choice3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Choice4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="audio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="correct" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PracticeID" Type="Int32" />
+          <NavigationProperty Name="Practice" Relationship="Self.FK_Practice_content_Practice" FromRole="Practice_content" ToRole="Practice" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Kid_level_practice_Kid">
+          <End Role="Kid" Type="Self.Kid" Multiplicity="1" />
+          <End Role="Kid_level_practice" Type="Self.Kid_level_practice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kid">
+              <PropertyRef Name="KidID" />
+            </Principal>
+            <Dependent Role="Kid_level_practice">
+              <PropertyRef Name="KidID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kid_level_practice_Practice">
+          <End Role="Practice" Type="Self.Practice" Multiplicity="1" />
+          <End Role="Kid_level_practice" Type="Self.Kid_level_practice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Practice">
+              <PropertyRef Name="PracticeID" />
+            </Principal>
+            <Dependent Role="Kid_level_practice">
+              <PropertyRef Name="practiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lesson_Content_Lesson">
+          <End Role="Lesson" Type="Self.Lesson" Multiplicity="0..1" />
+          <End Role="Lesson_Content" Type="Self.Lesson_Content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lesson">
+              <PropertyRef Name="LessonID" />
+            </Principal>
+            <Dependent Role="Lesson_Content">
+              <PropertyRef Name="LessonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lesson_Level">
+          <End Role="Level" Type="Self.Level" Multiplicity="1" />
+          <End Role="Lesson" Type="Self.Lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Level">
+              <PropertyRef Name="LevelID" />
+            </Principal>
+            <Dependent Role="Lesson">
+              <PropertyRef Name="LevelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Practice_Level">
+          <End Role="Level" Type="Self.Level" Multiplicity="1" />
+          <End Role="Practice" Type="Self.Practice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Level">
+              <PropertyRef Name="LevelID" />
+            </Principal>
+            <Dependent Role="Practice">
+              <PropertyRef Name="LevelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Practice_content_Practice">
+          <End Role="Practice" Type="Self.Practice" Multiplicity="0..1" />
+          <End Role="Practice_content" Type="Self.Practice_content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Practice">
+              <PropertyRef Name="PracticeID" />
+            </Principal>
+            <Dependent Role="Practice_content">
+              <PropertyRef Name="PracticeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KidsKingdomEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Kids" EntityType="Self.Kid" />
+          <EntitySet Name="Kid_level_practice" EntityType="Self.Kid_level_practice" />
+          <EntitySet Name="Lessons" EntityType="Self.Lesson" />
+          <EntitySet Name="Lesson_Content" EntityType="Self.Lesson_Content" />
+          <EntitySet Name="Levels" EntityType="Self.Level" />
+          <EntitySet Name="Practices" EntityType="Self.Practice" />
+          <EntitySet Name="Practice_content" EntityType="Self.Practice_content" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <AssociationSet Name="FK_Kid_level_practice_Kid" Association="Self.FK_Kid_level_practice_Kid">
+            <End Role="Kid" EntitySet="Kids" />
+            <End Role="Kid_level_practice" EntitySet="Kid_level_practice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kid_level_practice_Practice" Association="Self.FK_Kid_level_practice_Practice">
+            <End Role="Practice" EntitySet="Practices" />
+            <End Role="Kid_level_practice" EntitySet="Kid_level_practice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lesson_Content_Lesson" Association="Self.FK_Lesson_Content_Lesson">
+            <End Role="Lesson" EntitySet="Lessons" />
+            <End Role="Lesson_Content" EntitySet="Lesson_Content" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lesson_Level" Association="Self.FK_Lesson_Level">
+            <End Role="Level" EntitySet="Levels" />
+            <End Role="Lesson" EntitySet="Lessons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Practice_Level" Association="Self.FK_Practice_Level">
+            <End Role="Level" EntitySet="Levels" />
+            <End Role="Practice" EntitySet="Practices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Practice_content_Practice" Association="Self.FK_Practice_content_Practice">
+            <End Role="Practice" EntitySet="Practices" />
+            <End Role="Practice_content" EntitySet="Practice_content" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KidsKingdomModelStoreContainer" CdmEntityContainer="KidsKingdomEntities3">
+          <EntitySetMapping Name="Kids">
+            <EntityTypeMapping TypeName="KidsKingdomModel.Kid">
+              <MappingFragment StoreEntitySet="Kid">
+                <ScalarProperty Name="KidID" ColumnName="KidID" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kid_level_practice">
+            <EntityTypeMapping TypeName="KidsKingdomModel.Kid_level_practice">
+              <MappingFragment StoreEntitySet="Kid_level_practice">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="KidID" ColumnName="KidID" />
+                <ScalarProperty Name="practiceID" ColumnName="practiceID" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="PracticeName" ColumnName="PracticeName" />
+                <ScalarProperty Name="UseName" ColumnName="UseName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lessons">
+            <EntityTypeMapping TypeName="KidsKingdomModel.Lesson">
+              <MappingFragment StoreEntitySet="Lesson">
+                <ScalarProperty Name="LessonID" ColumnName="LessonID" />
+                <ScalarProperty Name="LevelID" ColumnName="LevelID" />
+                <ScalarProperty Name="LessonNumber" ColumnName="LessonNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lesson_Content">
+            <EntityTypeMapping TypeName="KidsKingdomModel.Lesson_Content">
+              <MappingFragment StoreEntitySet="Lesson_Content">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Image1_C" ColumnName="Image1_C" />
+                <ScalarProperty Name="Image2_S" ColumnName="Image2_S" />
+                <ScalarProperty Name="Image3" ColumnName="Image3" />
+                <ScalarProperty Name="Voice" ColumnName="Voice" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="LessonID" ColumnName="LessonID" />
+                <ScalarProperty Name="video" ColumnName="video" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Levels">
+            <EntityTypeMapping TypeName="KidsKingdomModel.Level">
+              <MappingFragment StoreEntitySet="Level">
+                <ScalarProperty Name="LevelID" ColumnName="LevelID" />
+                <ScalarProperty Name="LevelType" ColumnName="LevelType" />
+                <ScalarProperty Name="LevelNumber" ColumnName="LevelNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Practices">
+            <EntityTypeMapping TypeName="KidsKingdomModel.Practice">
+              <MappingFragment StoreEntitySet="Practice">
+                <ScalarProperty Name="PracticeID" ColumnName="PracticeID" />
+                <ScalarProperty Name="PracticeNumber" ColumnName="PracticeNumber" />
+                <ScalarProperty Name="LevelID" ColumnName="LevelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Practice_content">
+            <EntityTypeMapping TypeName="KidsKingdomModel.Practice_content">
+              <MappingFragment StoreEntitySet="Practice_content">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Choice1" ColumnName="Choice1" />
+                <ScalarProperty Name="Choice2" ColumnName="Choice2" />
+                <ScalarProperty Name="Choice3" ColumnName="Choice3" />
+                <ScalarProperty Name="Choice4" ColumnName="Choice4" />
+                <ScalarProperty Name="audio" ColumnName="audio" />
+                <ScalarProperty Name="correct" ColumnName="correct" />
+                <ScalarProperty Name="PracticeID" ColumnName="PracticeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="KidsKingdomModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

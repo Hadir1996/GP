@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="82c2246962004958ba923952fed58de8" Name="Diagram1">
+        <EntityTypeShape EntityType="KidsKingdomModel.Kid" Width="1.5" PointX="6" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KidsKingdomModel.Kid_level_practice" Width="1.5" PointX="8.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KidsKingdomModel.Lesson" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KidsKingdomModel.Lesson_Content" Width="1.5" PointX="5.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="KidsKingdomModel.Level" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KidsKingdomModel.Practice" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KidsKingdomModel.Practice_content" Width="1.5" PointX="5.25" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KidsKingdomModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="KidsKingdomModel.FK_Kid_level_practice_Kid" ManuallyRouted="false" />
+        <AssociationConnector Association="KidsKingdomModel.FK_Kid_level_practice_Practice" ManuallyRouted="false" />
+        <AssociationConnector Association="KidsKingdomModel.FK_Lesson_Content_Lesson" ManuallyRouted="false" />
+        <AssociationConnector Association="KidsKingdomModel.FK_Lesson_Level" ManuallyRouted="false" />
+        <AssociationConnector Association="KidsKingdomModel.FK_Practice_Level" ManuallyRouted="false" />
+        <AssociationConnector Association="KidsKingdomModel.FK_Practice_content_Practice" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

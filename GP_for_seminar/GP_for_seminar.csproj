@@ -1,0 +1,1100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Bond.CSharp.7.0.1\build\Bond.CSharp.props" Condition="Exists('..\packages\Bond.CSharp.7.0.1\build\Bond.CSharp.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{95193A1A-CC8D-4ECD-9A43-B5189729D9F8}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GP_for_seminar</RootNamespace>
+    <AssemblyName>GP_for_seminar</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bond, Version=7.0.1.100, Culture=neutral, PublicKeyToken=87e9ead25a117286, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bond.Core.CSharp.7.0.1\lib\net45\Bond.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Bond.Attributes, Version=7.0.1.100, Culture=neutral, PublicKeyToken=87e9ead25a117286, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bond.Core.CSharp.7.0.1\lib\net45\Bond.Attributes.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Bond.IO, Version=7.0.1.100, Culture=neutral, PublicKeyToken=87e9ead25a117286, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bond.Core.CSharp.7.0.1\lib\net45\Bond.IO.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Bond.JSON, Version=7.0.1.100, Culture=neutral, PublicKeyToken=87e9ead25a117286, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bond.Runtime.CSharp.7.0.1\lib\net45\Bond.JSON.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Bond.Reflection, Version=7.0.1.100, Culture=neutral, PublicKeyToken=87e9ead25a117286, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bond.Core.CSharp.7.0.1\lib\net45\Bond.Reflection.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Bing.Messaging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bing.Speech.2.0.2\lib\net45\Microsoft.Bing.Messaging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Bing.Speech, Version=2.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bing.Speech.2.0.2\lib\net45\Microsoft.Bing.Speech.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualStudio.Threading, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.Threading.14.1.131\lib\net45\Microsoft.VisualStudio.Threading.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Validation, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.Validation.14.1.111\lib\net45\Microsoft.VisualStudio.Validation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SpeechClient, Version=0.0.0.0, Culture=neutral, PublicKeyToken=720c26922c782415, processorArchitecture=x86">
+      <HintPath>..\packages\Microsoft.ProjectOxford.SpeechRecognition-x86.1.0.0.7\lib\SpeechClient.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SpeechLib.Models, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpeechLib.Models.1.6.0\lib\net40\SpeechLib.Models.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SpeechLib.Recognition, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpeechLib.Recognition.1.6.0\lib\net40\SpeechLib.Recognition.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SpeechLib.Recognition.KinectV1, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpeechLib.Recognition.KinectV1.1.6.0\lib\net40\SpeechLib.Recognition.KinectV1.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syn.Speech, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syn.Speech.1.0.3\lib\net45\Syn.Speech.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.6\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.6\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.6\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="audios\colors\black.mp3" />
+    <Content Include="audios\colors\blue.mp3" />
+    <Content Include="audios\colors\brown.mp3" />
+    <Content Include="audios\colors\gray.mp3" />
+    <Content Include="audios\colors\green.mp3" />
+    <Content Include="audios\colors\orange.mp3" />
+    <Content Include="audios\colors\pink.mp3" />
+    <Content Include="audios\colors\purple.mp3" />
+    <Content Include="audios\colors\red.mp3" />
+    <Content Include="audios\colors\white.mp3" />
+    <Content Include="audios\colors\yellow.mp3" />
+    <Content Include="audios\family\Baby.mp3" />
+    <Content Include="audios\family\brother.mp3" />
+    <Content Include="audios\family\father.mp3" />
+    <Content Include="audios\family\grandfather.mp3" />
+    <Content Include="audios\family\grandmother.mp3" />
+    <Content Include="audios\family\mother.mp3" />
+    <Content Include="audios\family\sister.mp3" />
+    <Content Include="audios\family\uncle.mp3" />
+    <Content Include="audios\number\0.mp3" />
+    <Content Include="audios\number\1.mp3" />
+    <Content Include="audios\number\2.mp3" />
+    <Content Include="audios\number\3.mp3" />
+    <Content Include="audios\number\4.mp3" />
+    <Content Include="audios\number\5.mp3" />
+    <Content Include="audios\number\6.mp3" />
+    <Content Include="audios\number\7.mp3" />
+    <Content Include="audios\number\8.mp3" />
+    <Content Include="audios\number\9.mp3" />
+    <Content Include="audios\words\Alligator.mp3" />
+    <Content Include="audios\words\ant.mp3" />
+    <Content Include="audios\words\apple.mp3" />
+    <Content Include="audios\words\aunt.mp3" />
+    <Content Include="audios\words\Baby.mp3" />
+    <Content Include="audios\words\Banana.mp3" />
+    <Content Include="audios\words\bear.mp3" />
+    <Content Include="audios\words\brother.mp3" />
+    <Content Include="audios\words\butterfly.mp3" />
+    <Content Include="audios\words\cake.mp3" />
+    <Content Include="audios\words\cat.mp3" />
+    <Content Include="audios\words\chicken.mp3" />
+    <Content Include="audios\words\chocolate.mp3" />
+    <Content Include="audios\words\cousin.mp3" />
+    <Content Include="audios\words\dog.mp3" />
+    <Content Include="audios\words\dragon.mp3" />
+    <Content Include="audios\words\duck.mp3" />
+    <Content Include="audios\words\earth.mp3" />
+    <Content Include="audios\words\egg.mp3" />
+    <Content Include="audios\words\elephant.mp3" />
+    <Content Include="audios\words\father.mp3" />
+    <Content Include="audios\words\fish.mp3" />
+    <Content Include="audios\words\flag.mp3" />
+    <Content Include="audios\words\frog.mp3" />
+    <Content Include="audios\words\girraf.mp3" />
+    <Content Include="audios\words\goat.mp3" />
+    <Content Include="audios\words\grandfather.mp3" />
+    <Content Include="audios\words\grandmother.mp3" />
+    <Content Include="audios\words\grape.mp3" />
+    <Content Include="audios\words\gray.mp3" />
+    <Content Include="audios\words\green.mp3" />
+    <Content Include="audios\words\hammer.mp3" />
+    <Content Include="audios\words\hat.mp3" />
+    <Content Include="audios\words\horse.mp3" />
+    <Content Include="audios\words\ice.mp3" />
+    <Content Include="audios\words\iguana.mp3" />
+    <Content Include="audios\words\insect.mp3" />
+    <Content Include="audios\words\jam.mp3" />
+    <Content Include="audios\words\jet.mp3" />
+    <Content Include="audios\words\juice.mp3" />
+    <Content Include="audios\words\kangaro.mp3" />
+    <Content Include="audios\words\key.mp3" />
+    <Content Include="audios\words\kitten.mp3" />
+    <Content Include="audios\words\lemon.mp3" />
+    <Content Include="audios\words\lion.mp3" />
+    <Content Include="audios\words\lollipop.mp3" />
+    <Content Include="audios\words\map.mp3" />
+    <Content Include="audios\words\monky.mp3" />
+    <Content Include="audios\words\mother.mp3" />
+    <Content Include="audios\words\mouse.mp3" />
+    <Content Include="audios\words\nest.mp3" />
+    <Content Include="audios\words\nurse.mp3" />
+    <Content Include="audios\words\nut.mp3" />
+    <Content Include="audios\words\octopus.mp3" />
+    <Content Include="audios\words\orange.mp3" />
+    <Content Include="audios\words\owl.mp3" />
+    <Content Include="audios\words\panda.mp3" />
+    <Content Include="audios\words\parent.mp3" />
+    <Content Include="audios\words\Pencil.mp3" />
+    <Content Include="audios\words\pizza.mp3" />
+    <Content Include="audios\words\quarter.mp3" />
+    <Content Include="audios\words\queen.mp3" />
+    <Content Include="audios\words\question.mp3" />
+    <Content Include="audios\words\rabbit.mp3" />
+    <Content Include="audios\words\rocket.mp3" />
+    <Content Include="audios\words\rose.mp3" />
+    <Content Include="audios\words\sheep.mp3" />
+    <Content Include="audios\words\sister.mp3" />
+    <Content Include="audios\words\snake.mp3" />
+    <Content Include="audios\words\spider.mp3" />
+    <Content Include="audios\words\tent.mp3" />
+    <Content Include="audios\words\Tiger.mp3" />
+    <Content Include="audios\words\turtle.mp3" />
+    <Content Include="audios\words\umbrella.mp3" />
+    <Content Include="audios\words\uncle.mp3" />
+    <Content Include="audios\words\unicorn.mp3" />
+    <Content Include="audios\words\uniform.mp3" />
+    <Content Include="audios\words\van.mp3" />
+    <Content Include="audios\words\vilion.mp3" />
+    <Content Include="audios\words\volcano.mp3" />
+    <Content Include="audios\words\watermelon.mp3" />
+    <Content Include="audios\words\whole.mp3" />
+    <Content Include="audios\words\wolf.mp3" />
+    <Content Include="audios\words\x-ray.mp3" />
+    <Content Include="audios\words\xylophone.mp3" />
+    <Content Include="audios\words\yam.mp3" />
+    <Content Include="audios\words\yarn.mp3" />
+    <Content Include="audios\words\yogurt.mp3" />
+    <Content Include="audios\words\zebra %282%29.mp3" />
+    <Content Include="audios\words\zebra.mp3" />
+    <Content Include="audios\words\zipper.mp3" />
+    <Content Include="audios\words\zucchini.mp3" />
+    <Content Include="images\alphabet\0.png" />
+    <Content Include="images\alphabet\1.png" />
+    <Content Include="images\alphabet\2.png" />
+    <Content Include="images\alphabet\3.png" />
+    <Content Include="images\alphabet\4.png" />
+    <Content Include="images\alphabet\5.png" />
+    <Content Include="images\alphabet\6.png" />
+    <Content Include="images\alphabet\7.png" />
+    <Content Include="images\alphabet\8.png" />
+    <Content Include="images\alphabet\9.png" />
+    <Content Include="images\alphabet\eight.png" />
+    <Content Include="images\alphabet\five.png" />
+    <Content Include="images\alphabet\four.png" />
+    <Content Include="images\alphabet\nine.png" />
+    <Content Include="images\alphabet\one.png" />
+    <Content Include="images\alphabet\seven.png" />
+    <Content Include="images\alphabet\six.png" />
+    <Content Include="images\alphabet\three.png" />
+    <Content Include="images\alphabet\two.png" />
+    <Content Include="images\alphabet\zero.png" />
+    <Content Include="images\background\question-mark.png" />
+    <Content Include="images\background\speake.png" />
+    <Content Include="images\background\speaker.png" />
+    <Content Include="images\color_level\black.png" />
+    <Content Include="images\color_level\black_b.png" />
+    <Content Include="images\color_level\blue.png" />
+    <Content Include="images\color_level\blue_b.png" />
+    <Content Include="images\color_level\brown.png" />
+    <Content Include="images\color_level\brown_b.png" />
+    <Content Include="images\color_level\gray.png" />
+    <Content Include="images\color_level\gray_b.png" />
+    <Content Include="images\color_level\green.png" />
+    <Content Include="images\color_level\green_b.png" />
+    <Content Include="images\color_level\orange.png" />
+    <Content Include="images\color_level\orange_b.png" />
+    <Content Include="images\color_level\pink.png" />
+    <Content Include="images\color_level\pink_b.png" />
+    <Content Include="images\color_level\purple.png" />
+    <Content Include="images\color_level\purple_b.png" />
+    <Content Include="images\color_level\red.png" />
+    <Content Include="images\color_level\Red_b.png" />
+    <Content Include="images\color_level\white.png" />
+    <Content Include="images\color_level\white_b.png" />
+    <Content Include="images\color_level\yellow.png" />
+    <Content Include="images\color_level\yellow_b.png" />
+    <Content Include="images\Colours\black.png" />
+    <Content Include="images\Colours\blue2.png" />
+    <Content Include="images\Colours\brpwn.png" />
+    <Content Include="images\Colours\gray.png" />
+    <Content Include="images\Colours\green.png" />
+    <Content Include="images\Colours\orange.png" />
+    <Content Include="images\Colours\pink.png" />
+    <Content Include="images\Colours\purple.png" />
+    <Content Include="images\Colours\red.png" />
+    <Content Include="images\Colours\white.png" />
+    <Content Include="images\Colours\yellow.png" />
+    <Content Include="images\family_level\baby.png" />
+    <Content Include="images\family_level\baby_t.png" />
+    <Content Include="images\family_level\brother.png" />
+    <Content Include="images\family_level\brother_t.png" />
+    <Content Include="images\family_level\father.png" />
+    <Content Include="images\family_level\father_t.png" />
+    <Content Include="images\family_level\grandfather.png" />
+    <Content Include="images\family_level\grandfather_t.png" />
+    <Content Include="images\family_level\grandmother.png" />
+    <Content Include="images\family_level\grandmother_t.png" />
+    <Content Include="images\family_level\mother.png" />
+    <Content Include="images\family_level\mother_t.png" />
+    <Content Include="images\family_level\sister.png" />
+    <Content Include="images\family_level\sister_t.png" />
+    <Content Include="images\icons\access-denied.png" />
+    <Content Include="images\icons\backarrow.png" />
+    <Content Include="images\icons\backicon.png" />
+    <Content Include="images\icons\googmood.png" />
+    <Content Include="images\icons\help.png" />
+    <Content Include="images\icons\hsmile.png" />
+    <Content Include="images\icons\leftarrow.png" />
+    <Content Include="images\icons\replay.png" />
+    <Content Include="images\icons\rightarrow.png" />
+    <Content Include="images\icons\sad.png" />
+    <Content Include="images\icons\speecker.png" />
+    <Content Include="images\icons\ssmile.png" />
+    <Content Include="images\icons\xmark.png" />
+    <Content Include="images\numberslevel1\0.png" />
+    <Content Include="images\numberslevel1\1.png" />
+    <Content Include="images\numberslevel1\2.png" />
+    <Content Include="images\numberslevel1\3.png" />
+    <Content Include="images\numberslevel1\4.png" />
+    <Content Include="images\numberslevel1\5.png" />
+    <Content Include="images\numberslevel1\6.png" />
+    <Content Include="images\numberslevel1\7.png" />
+    <Content Include="images\numberslevel1\8.png" />
+    <Content Include="images\numberslevel1\9.png" />
+    <Content Include="images\numberslevel1\eight.png" />
+    <Content Include="images\numberslevel1\five.png" />
+    <Content Include="images\numberslevel1\four.png" />
+    <Content Include="images\numberslevel1\nine.png" />
+    <Content Include="images\numberslevel1\one.png" />
+    <Content Include="images\numberslevel1\seven.png" />
+    <Content Include="images\numberslevel1\six.png" />
+    <Content Include="images\numberslevel1\three.png" />
+    <Content Include="images\numberslevel1\two.png" />
+    <Content Include="images\numberslevel1\zero.png" />
+    <Content Include="images\slalphabets\A_SL.png" />
+    <Content Include="images\slalphabets\B_SL.png" />
+    <Content Include="images\slalphabets\C_SL.png" />
+    <Content Include="images\slalphabets\D_SL.png" />
+    <Content Include="images\slalphabets\E_SL.png" />
+    <Content Include="images\slalphabets\F_Sl.png" />
+    <Content Include="images\slalphabets\G_SL.png" />
+    <Content Include="images\slalphabets\H_SL.png" />
+    <Content Include="images\slalphabets\I_SL.png" />
+    <Content Include="images\slalphabets\J_SL.png" />
+    <Content Include="images\slalphabets\K_SL.png" />
+    <Content Include="images\slalphabets\L_SL.png" />
+    <Content Include="images\slalphabets\M_SL.png" />
+    <Content Include="images\slalphabets\N_SL.png" />
+    <Content Include="images\slalphabets\O_SL.png" />
+    <Content Include="images\slalphabets\P_SL.png" />
+    <Content Include="images\slalphabets\Q_SL.png" />
+    <Content Include="images\slalphabets\R_SL.png" />
+    <Content Include="images\slalphabets\S_SL.png" />
+    <Content Include="images\slalphabets\T_SL.png" />
+    <Content Include="images\slalphabets\U_SL.png" />
+    <Content Include="images\slalphabets\V_SL.png" />
+    <Content Include="images\slalphabets\W_SL.png" />
+    <Content Include="images\slalphabets\X_SL.png" />
+    <Content Include="images\slalphabets\Y_SL.png" />
+    <Content Include="images\slalphabets\Z_SL.png" />
+    <Content Include="images\words\-horse.gif" />
+    <Content Include="images\words\1200px-Daffy_Duck.svg.png" />
+    <Content Include="images\words\aligator-photo.png" />
+    <Content Include="images\words\aligator.png" />
+    <Content Include="images\words\Ant-photo.png" />
+    <Content Include="images\words\Ant.png" />
+    <Content Include="images\words\Apple-photo.png" />
+    <Content Include="images\words\Apple.png" />
+    <Content Include="images\words\Banana-photo.png" />
+    <Content Include="images\words\Banana_w.gif" />
+    <Content Include="images\words\bear-photo.png" />
+    <Content Include="images\words\bear.png" />
+    <Content Include="images\words\birdnest.png" />
+    <Content Include="images\words\Butterfly.png" />
+    <Content Include="images\words\Butterflyphoto.png" />
+    <Content Include="images\words\Cake-photo.png" />
+    <Content Include="images\words\cake-quarters.png" />
+    <Content Include="images\words\Cake.png" />
+    <Content Include="images\words\cartoon-bird-nest-smart-exchange-usa-bird-nest-free.png" />
+    <Content Include="images\words\Cat-photo.png" />
+    <Content Include="images\words\cat.png" />
+    <Content Include="images\words\Chick photo.png" />
+    <Content Include="images\words\Chicken.gif" />
+    <Content Include="images\words\Chocolate-clipart-image-chocolate-chips-image.png" />
+    <Content Include="images\words\Chocolate-on-clip-art-chocolate-easter-bunny-and.png" />
+    <Content Include="images\words\Chocolate.gif" />
+    <Content Include="images\words\Cute-horse.gif" />
+    <Content Include="images\words\disney_princess____student_thai_uniform_by_chamchammi-d7q7fc7.png" />
+    <Content Include="images\words\dog.gif" />
+    <Content Include="images\words\dog_w.gif" />
+    <Content Include="images\words\Donkey-photo.png" />
+    <Content Include="images\words\donkey.png" />
+    <Content Include="images\words\Dragon.gif" />
+    <Content Include="images\words\dragon_w.gif" />
+    <Content Include="images\words\Duck.gif" />
+    <Content Include="images\words\duck_p.gif" />
+    <Content Include="images\words\earth.gif" />
+    <Content Include="images\words\earth_w.gif" />
+    <Content Include="images\words\egg.jpg" />
+    <Content Include="images\words\egges.jpg" />
+    <Content Include="images\words\egg_w.gif" />
+    <Content Include="images\words\Elephent-phoro.png" />
+    <Content Include="images\words\Elephent.png" />
+    <Content Include="images\words\fish-photo.gif" />
+    <Content Include="images\words\fish.gif" />
+    <Content Include="images\words\flag.png" />
+    <Content Include="images\words\flag1.gif" />
+    <Content Include="images\words\flag_w.gif" />
+    <Content Include="images\words\frog.gif" />
+    <Content Include="images\words\frog_w.gif" />
+    <Content Include="images\words\giraffe.gif" />
+    <Content Include="images\words\giraffes_p.gif" />
+    <Content Include="images\words\Goat-photo.gif" />
+    <Content Include="images\words\Goat.gif" />
+    <Content Include="images\words\grapes--promo.png" />
+    <Content Include="images\words\Grapes-free-to-use-clip-art-2.png" />
+    <Content Include="images\words\grape_w.gif" />
+    <Content Include="images\words\HAMMER.gif" />
+    <Content Include="images\words\hammer_p.gif" />
+    <Content Include="images\words\hat.gif" />
+    <Content Include="images\words\hat_W.gif" />
+    <Content Include="images\words\Horse-horse.gif" />
+    <Content Include="images\words\Horse.gif" />
+    <Content Include="images\words\How-to-draw-a-cartoon-snake-20.png" />
+    <Content Include="images\words\Ice-photo.gif" />
+    <Content Include="images\words\ice.gif" />
+    <Content Include="images\words\iguana.gif" />
+    <Content Include="images\words\iguana_P.gif" />
+    <Content Include="images\words\insect.gif" />
+    <Content Include="images\words\insect_p.gif" />
+    <Content Include="images\words\jam.gif" />
+    <Content Include="images\words\JAM_p.gif" />
+    <Content Include="images\words\jet.gif" />
+    <Content Include="images\words\jet_p.gif" />
+    <Content Include="images\words\juice_w.gif" />
+    <Content Include="images\words\kangaro.gif" />
+    <Content Include="images\words\kangaroo.gif" />
+    <Content Include="images\words\kangaroo1.gif" />
+    <Content Include="images\words\keys.gif" />
+    <Content Include="images\words\keys_W.gif" />
+    <Content Include="images\words\Kitten.png" />
+    <Content Include="images\words\kitten_w.gif" />
+    <Content Include="images\words\Lemon-clip-art-free-free-clipart-images-2.jpg" />
+    <Content Include="images\words\Lemon_W.gif" />
+    <Content Include="images\words\Lion-photo.gif" />
+    <Content Include="images\words\Lion.gif" />
+    <Content Include="images\words\LION_p.gif" />
+    <Content Include="images\words\Lolipop-copy.gif" />
+    <Content Include="images\words\Lolipop-copy1.gif" />
+    <Content Include="images\words\Lollipop-free-to-use-cliparts-3.png" />
+    <Content Include="images\words\Lollipop_W.gif" />
+    <Content Include="images\words\map.gif" />
+    <Content Include="images\words\map_w.gif" />
+    <Content Include="images\words\Monkey-images-clip-art.png" />
+    <Content Include="images\words\Monkey-photo.gif" />
+    <Content Include="images\words\Monkey.gif" />
+    <Content Include="images\words\Mouse.gif" />
+    <Content Include="images\words\mouse_p.gif" />
+    <Content Include="images\words\nest_w.gif" />
+    <Content Include="images\words\nurse-photo.gif" />
+    <Content Include="images\words\nurse.gif" />
+    <Content Include="images\words\nut.gif" />
+    <Content Include="images\words\NUT.png" />
+    <Content Include="images\words\octopus.gif" />
+    <Content Include="images\words\octopus_p.gif" />
+    <Content Include="images\words\orange-juice-hi.gif" />
+    <Content Include="images\words\orange-juice-hi.png" />
+    <Content Include="images\words\orange_p.gif" />
+    <Content Include="images\words\orange_w.gif" />
+    <Content Include="images\words\Owl-copy.gif" />
+    <Content Include="images\words\Owl-photo.gif" />
+    <Content Include="images\words\Owl-W.gif" />
+    <Content Include="images\words\Owl.gif" />
+    <Content Include="images\words\panda.gif" />
+    <Content Include="images\words\panda_W.gif" />
+    <Content Include="images\words\pencil-photo.gif" />
+    <Content Include="images\words\pencil.gif" />
+    <Content Include="images\words\pencil_W.gif" />
+    <Content Include="images\words\pink-yarn-hi.png" />
+    <Content Include="images\words\pizza-png-4.png" />
+    <Content Include="images\words\pizza.gif" />
+    <Content Include="images\words\q-question.gif" />
+    <Content Include="images\words\quarter.gif" />
+    <Content Include="images\words\QUARTER2.gif" />
+    <Content Include="images\words\queen.gif" />
+    <Content Include="images\words\Queen2.gif" />
+    <Content Include="images\words\queen_p.gif" />
+    <Content Include="images\words\question.gif" />
+    <Content Include="images\words\rabbit.png" />
+    <Content Include="images\words\rabbit_w.gif" />
+    <Content Include="images\words\rocket-photo.gif" />
+    <Content Include="images\words\rocket.gif" />
+    <Content Include="images\words\rose.gif" />
+    <Content Include="images\words\Rose.png" />
+    <Content Include="images\words\sh.gif" />
+    <Content Include="images\words\sheep copy.PNG" />
+    <Content Include="images\words\Sheep_1-copy.gif" />
+    <Content Include="images\words\Sheep_w.gif" />
+    <Content Include="images\words\snake.gif" />
+    <Content Include="images\words\spider.gif" />
+    <Content Include="images\words\spider_p.gif" />
+    <Content Include="images\words\tent-photo.gif" />
+    <Content Include="images\words\tent.gif" />
+    <Content Include="images\words\tent_P.gif" />
+    <Content Include="images\words\tiger-48301.png" />
+    <Content Include="images\words\Tiger-copy.gif" />
+    <Content Include="images\words\Turtle.gif" />
+    <Content Include="images\words\Turtle_w.gif" />
+    <Content Include="images\words\umbrella-photo.gif" />
+    <Content Include="images\words\umbrella.gif" />
+    <Content Include="images\words\umbrella_P.gif" />
+    <Content Include="images\words\unicorn.gif" />
+    <Content Include="images\words\unicorn1.gif" />
+    <Content Include="images\words\unicorn_w.gif" />
+    <Content Include="images\words\uniform.png" />
+    <Content Include="images\words\uniform_w.gif" />
+    <Content Include="images\words\van.gif" />
+    <Content Include="images\words\van_w.gif" />
+    <Content Include="images\words\violin-brown-icon.png" />
+    <Content Include="images\words\violin.gif" />
+    <Content Include="images\words\volcano.gif" />
+    <Content Include="images\words\watermelon.gif" />
+    <Content Include="images\words\watermelon_p.gif" />
+    <Content Include="images\words\wolf.gif" />
+    <Content Include="images\words\wolf_w.gif" />
+    <Content Include="images\words\W_volcano.gif" />
+    <Content Include="images\words\x-ray.gif" />
+    <Content Include="images\words\xray.gif" />
+    <Content Include="images\words\xylophone.gif" />
+    <Content Include="images\words\xylophone_p.gif" />
+    <Content Include="images\words\yam-w.gif" />
+    <Content Include="images\words\yam.gif" />
+    <Content Include="images\words\yarn_w.gif" />
+    <Content Include="images\words\yogurt.gif" />
+    <Content Include="images\words\yogurt_p.gif" />
+    <Content Include="images\words\zebra.gif" />
+    <Content Include="images\words\zebra_p.gif" />
+    <Content Include="images\words\zipper-w.gif" />
+    <Content Include="images\words\zipper.gif" />
+    <Content Include="images\words\zucchini.gif" />
+    <Content Include="images\words\Zucchini_w.gif" />
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="pages\alpha_Level1_lesson_practice.aspx" />
+    <Content Include="pages\alpha_Level2_lesson_practice.aspx" />
+    <Content Include="pages\color.aspx" />
+    <Content Include="pages\colorLevels.aspx" />
+    <Content Include="pages\color_Level1_lesson_practice.aspx" />
+    <Content Include="pages\family.aspx" />
+    <Content Include="pages\Familylevels.aspx" />
+    <Content Include="pages\Familypractice.aspx" />
+    <Content Include="pages\family_Level1_lesson_practice.aspx" />
+    <Content Include="pages\num_Level1_lesson_practice.aspx" />
+    <Content Include="pages\Practice.aspx" />
+    <Content Include="pages\Practice3.aspx" />
+    <Content Include="pages\practice_2.aspx" />
+    <Content Include="pages\practice_score.aspx" />
+    <Content Include="pages\showtips.aspx" />
+    <Content Include="pages\slalphabets.aspx" />
+    <Content Include="pages\SLlessons.aspx" />
+    <Content Include="pages\sllevels.aspx" />
+    <Content Include="pages\sl_Level1_lesson_practice.aspx" />
+    <Content Include="Site1.Master" />
+    <Content Include="audios\words\sounds.zip" />
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="audios\letters\A.wav" />
+    <Content Include="audios\letters\B.wav" />
+    <Content Include="audios\letters\C.wav" />
+    <Content Include="audios\letters\D.wav" />
+    <Content Include="audios\letters\E.wav" />
+    <Content Include="audios\letters\F.wav" />
+    <Content Include="audios\letters\G.wav" />
+    <Content Include="audios\letters\H.wav" />
+    <Content Include="audios\letters\I.wav" />
+    <Content Include="audios\letters\J.wav" />
+    <Content Include="audios\letters\K.wav" />
+    <Content Include="audios\letters\L.wav" />
+    <Content Include="audios\letters\M.wav" />
+    <Content Include="audios\letters\N.wav" />
+    <Content Include="audios\letters\O.wav" />
+    <Content Include="audios\letters\P.wav" />
+    <Content Include="audios\letters\Q.wav" />
+    <Content Include="audios\letters\R.wav" />
+    <Content Include="audios\letters\S.wav" />
+    <Content Include="audios\letters\T.wav" />
+    <Content Include="audios\letters\U.wav" />
+    <Content Include="audios\letters\V.wav" />
+    <Content Include="audios\letters\W.wav" />
+    <Content Include="audios\letters\Y.wav" />
+    <Content Include="audios\letters\Z.wav" />
+    <Content Include="images\alphabet\A.png" />
+    <Content Include="images\alphabet\B.png" />
+    <Content Include="images\alphabet\C.png" />
+    <Content Include="images\alphabet\D.png" />
+    <Content Include="images\alphabet\E.png" />
+    <Content Include="images\alphabet\F.png" />
+    <Content Include="images\alphabet\G.png" />
+    <Content Include="images\alphabet\H.png" />
+    <Content Include="images\alphabet\I.png" />
+    <Content Include="images\alphabet\J.png" />
+    <Content Include="images\alphabet\K.png" />
+    <Content Include="images\alphabet\L.png" />
+    <Content Include="images\alphabet\M.png" />
+    <Content Include="images\alphabet\N.png" />
+    <Content Include="images\alphabet\O.png" />
+    <Content Include="images\alphabet\P.png" />
+    <Content Include="images\alphabet\Q.png" />
+    <Content Include="images\alphabet\R.png" />
+    <Content Include="images\alphabet\S.png" />
+    <Content Include="images\alphabet\T.png" />
+    <Content Include="images\alphabet\U.png" />
+    <Content Include="images\alphabet\V.png" />
+    <Content Include="images\alphabet\W.png" />
+    <Content Include="images\alphabet\X.png" />
+    <Content Include="images\alphabet\Y.png" />
+    <Content Include="images\alphabet\Z.png" />
+    <Content Include="images\background\123.png" />
+    <Content Include="images\background\abcs.png" />
+    <Content Include="images\background\b.jpg" />
+    <Content Include="images\background\back.png" />
+    <Content Include="images\background\background.jpg" />
+    <Content Include="images\background\colours.jpg" />
+    <Content Include="images\background\Family.PNG" />
+    <Content Include="images\background\reply %281%29.png" />
+    <Content Include="images\background\sound-on.png" />
+    <Content Include="images\capitalsmall\A.png" />
+    <Content Include="images\capitalsmall\a_.png" />
+    <Content Include="images\capitalsmall\B.png" />
+    <Content Include="images\capitalsmall\b_.png" />
+    <Content Include="images\capitalsmall\C.png" />
+    <Content Include="images\capitalsmall\c_.png" />
+    <Content Include="images\capitalsmall\D.png" />
+    <Content Include="images\capitalsmall\d_.png" />
+    <Content Include="images\capitalsmall\E.png" />
+    <Content Include="images\capitalsmall\eight.png" />
+    <Content Include="images\capitalsmall\e_.png" />
+    <Content Include="images\capitalsmall\e_1.png" />
+    <Content Include="images\capitalsmall\F.png" />
+    <Content Include="images\capitalsmall\five.png" />
+    <Content Include="images\capitalsmall\four.png" />
+    <Content Include="images\capitalsmall\f_.png" />
+    <Content Include="images\capitalsmall\G.png" />
+    <Content Include="images\capitalsmall\g_.png" />
+    <Content Include="images\capitalsmall\H.png" />
+    <Content Include="images\capitalsmall\h_.png" />
+    <Content Include="images\capitalsmall\I.png" />
+    <Content Include="images\capitalsmall\i_.png" />
+    <Content Include="images\capitalsmall\J.png" />
+    <Content Include="images\capitalsmall\j_.png" />
+    <Content Include="images\capitalsmall\K.png" />
+    <Content Include="images\capitalsmall\k_.png" />
+    <Content Include="images\capitalsmall\L.png" />
+    <Content Include="images\capitalsmall\l_.png" />
+    <Content Include="images\capitalsmall\M.png" />
+    <Content Include="images\capitalsmall\m_.png" />
+    <Content Include="images\capitalsmall\N.png" />
+    <Content Include="images\capitalsmall\nine.png" />
+    <Content Include="images\capitalsmall\n_.png" />
+    <Content Include="images\capitalsmall\O.png" />
+    <Content Include="images\capitalsmall\one.png" />
+    <Content Include="images\capitalsmall\o_.png" />
+    <Content Include="images\capitalsmall\P.png" />
+    <Content Include="images\capitalsmall\p_.png" />
+    <Content Include="images\capitalsmall\Q.png" />
+    <Content Include="images\capitalsmall\q_.png" />
+    <Content Include="images\capitalsmall\R.png" />
+    <Content Include="images\capitalsmall\r_.png" />
+    <Content Include="images\capitalsmall\S.png" />
+    <Content Include="images\capitalsmall\seven.png" />
+    <Content Include="images\capitalsmall\six.png" />
+    <Content Include="images\capitalsmall\s_.png" />
+    <Content Include="images\capitalsmall\T.png" />
+    <Content Include="images\capitalsmall\three.png" />
+    <Content Include="images\capitalsmall\two.png" />
+    <Content Include="images\capitalsmall\t_.png" />
+    <Content Include="images\capitalsmall\U.png" />
+    <Content Include="images\capitalsmall\u_.png" />
+    <Content Include="images\capitalsmall\V.png" />
+    <Content Include="images\capitalsmall\v_.png" />
+    <Content Include="images\capitalsmall\w.png" />
+    <Content Include="images\capitalsmall\W_.png" />
+    <Content Include="images\capitalsmall\X.png" />
+    <Content Include="images\capitalsmall\x_.png" />
+    <Content Include="images\capitalsmall\Y.png" />
+    <Content Include="images\capitalsmall\y_.png" />
+    <Content Include="images\capitalsmall\Z.png" />
+    <Content Include="images\capitalsmall\zero.png" />
+    <Content Include="images\capitalsmall\z_.png" />
+    <Content Include="images\number\eight.png" />
+    <Content Include="images\number\five.png" />
+    <Content Include="images\number\four.png" />
+    <Content Include="images\number\nine.png" />
+    <Content Include="images\number\one.png" />
+    <Content Include="images\number\seven.png" />
+    <Content Include="images\number\six.png" />
+    <Content Include="images\number\theree.png" />
+    <Content Include="images\number\two.png" />
+    <Content Include="images\number\zero.png" />
+    <Content Include="pages\Alphabets.aspx" />
+    <Content Include="pages\home.aspx" />
+    <Content Include="pages\alphabetsLevels.aspx" />
+    <Content Include="pages\Lessons.aspx" />
+    <Content Include="pages\login.aspx" />
+    <Content Include="pages\Numbers.aspx" />
+    <Content Include="pages\numbersLevels.aspx" />
+    <Content Include="pages\regester.aspx" />
+    <Content Include="scripts\ai.0.22.9-build00167.js" />
+    <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="StyleSheet1.css" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Kid.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Kid_level_practice.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Lesson.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Lesson_Content.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Level.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KidModel.cs" />
+    <Compile Include="Models\LessonModel.cs" />
+    <Compile Include="Models\PracticeModel.cs" />
+    <Compile Include="Models\storescore.cs" />
+    <Compile Include="pages\Alphabets.aspx.cs">
+      <DependentUpon>Alphabets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\Alphabets.aspx.designer.cs">
+      <DependentUpon>Alphabets.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\alpha_Level1_lesson_practice.aspx.cs">
+      <DependentUpon>alpha_Level1_lesson_practice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\alpha_Level1_lesson_practice.aspx.designer.cs">
+      <DependentUpon>alpha_Level1_lesson_practice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\alpha_Level2_lesson_practice.aspx.cs">
+      <DependentUpon>alpha_Level2_lesson_practice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\alpha_Level2_lesson_practice.aspx.designer.cs">
+      <DependentUpon>alpha_Level2_lesson_practice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\color.aspx.cs">
+      <DependentUpon>color.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\color.aspx.designer.cs">
+      <DependentUpon>color.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\colorLevels.aspx.cs">
+      <DependentUpon>colorLevels.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\colorLevels.aspx.designer.cs">
+      <DependentUpon>colorLevels.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\color_Level1_lesson_practice.aspx.cs">
+      <DependentUpon>color_Level1_lesson_practice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\color_Level1_lesson_practice.aspx.designer.cs">
+      <DependentUpon>color_Level1_lesson_practice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\family.aspx.cs">
+      <DependentUpon>family.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\family.aspx.designer.cs">
+      <DependentUpon>family.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Familylevels.aspx.cs">
+      <DependentUpon>Familylevels.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\Familylevels.aspx.designer.cs">
+      <DependentUpon>Familylevels.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Familypractice.aspx.cs">
+      <DependentUpon>Familypractice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\Familypractice.aspx.designer.cs">
+      <DependentUpon>Familypractice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\family_Level1_lesson_practice.aspx.cs">
+      <DependentUpon>family_Level1_lesson_practice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\family_Level1_lesson_practice.aspx.designer.cs">
+      <DependentUpon>family_Level1_lesson_practice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\alphabetsLevels.aspx.cs">
+      <DependentUpon>alphabetsLevels.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\alphabetsLevels.aspx.designer.cs">
+      <DependentUpon>alphabetsLevels.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Lessons.aspx.cs">
+      <DependentUpon>Lessons.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\Lessons.aspx.designer.cs">
+      <DependentUpon>Lessons.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Numbers.aspx.cs">
+      <DependentUpon>Numbers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\Numbers.aspx.designer.cs">
+      <DependentUpon>Numbers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\numbersLevels.aspx.cs">
+      <DependentUpon>numbersLevels.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\numbersLevels.aspx.designer.cs">
+      <DependentUpon>numbersLevels.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\num_Level1_lesson_practice.aspx.cs">
+      <DependentUpon>num_Level1_lesson_practice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\num_Level1_lesson_practice.aspx.designer.cs">
+      <DependentUpon>num_Level1_lesson_practice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Practice.aspx.cs">
+      <DependentUpon>Practice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\Practice.aspx.designer.cs">
+      <DependentUpon>Practice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Practice3.aspx.cs">
+      <DependentUpon>Practice3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\Practice3.aspx.designer.cs">
+      <DependentUpon>Practice3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\practice_2.aspx.cs">
+      <DependentUpon>practice_2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\practice_2.aspx.designer.cs">
+      <DependentUpon>practice_2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\practice_score.aspx.cs">
+      <DependentUpon>practice_score.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\practice_score.aspx.designer.cs">
+      <DependentUpon>practice_score.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\regester.aspx.cs">
+      <DependentUpon>regester.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\regester.aspx.designer.cs">
+      <DependentUpon>regester.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\showtips.aspx.cs">
+      <DependentUpon>showtips.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\showtips.aspx.designer.cs">
+      <DependentUpon>showtips.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\slalphabets.aspx.cs">
+      <DependentUpon>slalphabets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\slalphabets.aspx.designer.cs">
+      <DependentUpon>slalphabets.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\SLlessons.aspx.cs">
+      <DependentUpon>SLlessons.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\SLlessons.aspx.designer.cs">
+      <DependentUpon>SLlessons.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\sllevels.aspx.cs">
+      <DependentUpon>sllevels.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\sllevels.aspx.designer.cs">
+      <DependentUpon>sllevels.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\sl_Level1_lesson_practice.aspx.cs">
+      <DependentUpon>sl_Level1_lesson_practice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\sl_Level1_lesson_practice.aspx.designer.cs">
+      <DependentUpon>sl_Level1_lesson_practice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Practice.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Practice_content.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="images\SLlettersvideos\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>21084</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:21084/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Bond.CSharp.7.0.1\build\Bond.CSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Bond.CSharp.7.0.1\build\Bond.CSharp.props'))" />
+    <Error Condition="!Exists('..\packages\Bond.CSharp.7.0.1\build\Bond.CSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Bond.CSharp.7.0.1\build\Bond.CSharp.targets'))" />
+  </Target>
+  <Import Project="..\packages\Bond.CSharp.7.0.1\build\Bond.CSharp.targets" Condition="Exists('..\packages\Bond.CSharp.7.0.1\build\Bond.CSharp.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
